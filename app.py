@@ -368,18 +368,18 @@ def alinhamento_local(seq1, seq2, matriz_pontuacao, matriz_caminho, matriz_subs)
 
 def main():
 
-    url = "https://raw.githubusercontent.com/vanleiko/dna-streamlit/main/src/dna-logo2.jpg"
-    with urllib.request.urlopen(url) as i:
+    # url = "https://raw.githubusercontent.com/vanleiko/dna-streamlit/main/src/dna-logo2.jpg"
+    # with urllib.request.urlopen(url) as i:
 
-	    byteImg = io.BytesIO(i.read())
-	    imagem = Image.open(byteImg)
+	#     byteImg = io.BytesIO(i.read())
+	#     imagem = Image.open(byteImg)
 
 
     default_input1 = "AAATTTACGTGGTT"
     default_input2 = "ACGTGT"
     help_text = "Free nucleotides sequence or FASTA format"
 
-    st.image(imagem, use_column_width=True)
+    # st.image(imagem, use_column_width=True)
     st.title("Pairwise DNA sequence alignment")
 
     st.sidebar.markdown("""<p style='text-align: justify'>
@@ -400,18 +400,12 @@ def main():
     <b>📊 Nucleotides content</b><br>
     This web app also counts the amount and percentage of Adenin, Cytosin, Guanin and  
     Thymin and GC-Content from each sequence.</b><br><br> 
-    <b>📚 References</b><br>
-    Needleman, S.B. and Wunsch, C.D. 1970. A general method applicable to the search for similarities in 
-    the amino acid sequences of two proteins. J. Mol. Bio., 48:443-453.<br>
-    Kimura, M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative
-    studies of nucleotide sequences. J. Mol. Evol., 16:111-120.<br>
-    Smith, T.F., Waterman, M.S. 1981. Identification of common molecular subsequences. J. Mol. Biol., 147:195-197.
     </p>""", unsafe_allow_html=True)
 
     st.subheader("**Alignment:**")
     tipo_alinhamento = st.radio("Select:", ["Global", "Local"]) 
 
-    st.subheader("**Enter below your DNA sequences:**")       
+    st.subheader("**Enter your DNA sequences below:**")       
     input_seq1 = st.text_area(label=">>> String 1:", 
                         value=default_input1, height=100, help=help_text)
     input_seq2 = st.text_area(label=">>> String 2:", 
